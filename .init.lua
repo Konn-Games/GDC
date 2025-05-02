@@ -1,6 +1,6 @@
 local fm = require "fullmoon"
 local lsqlite3 = require "lsqlite3"
-local dbm = fm.makeStorage("gameData.sqlite3")
+local dbm = fm.makeStorage("gdc/gameData.sqlite3")
 if dbm:exec [[
 CREATE TABLE IF NOT EXISTS Crash (id INTEGER PRIMARY KEY, message TEXT);
 ]] ~= lsqlite3.OK then
