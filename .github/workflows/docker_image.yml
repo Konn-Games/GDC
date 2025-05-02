@@ -32,4 +32,4 @@ jobs:
           
       - name: Push Docker image
         run: |
-          docker push konn-games/${NAME,,}:latest 
+          docker push ghcr.io/konn-games/${NAME,,}:latest 
