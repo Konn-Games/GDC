@@ -16,7 +16,7 @@ jobs:
 
       - name: Docker Login
         run : |
-          echo $ ${{ secrets.GH_TOKEN }} | docker login ghcr.io -u Konn-Games --password-stdin
+          echo ${{ secrets.GH_TOKEN }} | docker login ghcr.io -u Konn-Games --password-stdin
 
       - name: Build Docker image
         run: |
