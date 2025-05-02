@@ -28,7 +28,7 @@ jobs:
 
       - name: Tag Docker Image
         run: |
-          docker tag ${NAME,,}:latest konn-games/${NAME,,}:latest
+          docker tag ${NAME,,}:latest ghcr.io/konn-games/${NAME,,}:latest
           
       - name: Push Docker image
         run: |
