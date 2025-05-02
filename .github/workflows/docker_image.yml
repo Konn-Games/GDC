@@ -20,8 +20,8 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build --platform linux/arm64 -t $NAME .
+          docker build --platform linux/arm64 -t ${NAME,,} .
 
       - name: Push Docker image
         run: |
-          docker push ghrc.io/Konn-Games/$NAME:latest 
+          docker push ghrc.io/Konn-Games/${NAME,,}:latest 
