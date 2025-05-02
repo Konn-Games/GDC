@@ -1,0 +1,27 @@
+on:
+  push:
+    branches:
+      - main
+
+env:
+  NAME: ${{ github.event.repository.name }}
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Docker Login
+        run : |
+          docker login ghrc.io -u Konn-Games --password ${{ secrets.GH_TOKEN }}
+
+      - name: Build Docker image
+        run: |
+          docker build --platform linux/arm64 -t $NAME .
+
+      - name: Push Docker image
+        run: |
+          docker push ghrc.io/Konn-Games/$NAME:latest 
