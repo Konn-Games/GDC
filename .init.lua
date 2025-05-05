@@ -17,7 +17,8 @@ fm.setRoute({ "/game_data", method = "POST" }, function(r)
     return true
 end)
 
-fm.setRoute({ "/game_data", method = "GET" }, function()
+fm.setRoute({ "/game_data", method = "GET" }, function(r)
+    if r.body ~= os.getenv("PASSWORD") then return false end
     local rows = {}
     for row in dbm:nrows("SELECT id, os FROM Game") do
         rows[#rows + 1] = row
